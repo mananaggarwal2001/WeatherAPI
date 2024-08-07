@@ -15,12 +15,15 @@ public class WeatherController {
     public WeatherController(WeatherAPIService weatherAPIService) {
         this.weatherAPIService = weatherAPIService;
     }
-
+    private String lastTime(String result){
+        return result.split(" ")[1];
+    }
     @GetMapping("/")
     public String index(Model themodel) {
         themodel.addAttribute("countrySearchName", "India");
         themodel.addAttribute("current", weatherAPIService.getCurrentDetails(null).getCurrent());
         themodel.addAttribute("details", weatherAPIService.getDetails(null).getLocation());
+        themodel.addAttribute("time", lastTime(weatherAPIService.getCurrentDetails(null).getCurrent().getLast_updated()));
         return "weather";
     }
 
@@ -29,6 +32,7 @@ public class WeatherController {
         themodel.addAttribute("countrySearchName", countrySearch);
         themodel.addAttribute("current", weatherAPIService.getCurrentDetails(countrySearch).getCurrent());
         themodel.addAttribute("details", weatherAPIService.getDetails(countrySearch).getLocation());
+        themodel.addAttribute("time", lastTime(weatherAPIService.getCurrentDetails(countrySearch).getCurrent().getLast_updated()));
         return "weather";
     }
 

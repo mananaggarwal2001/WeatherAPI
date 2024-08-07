@@ -7,11 +7,16 @@ public class Current {
     private Condition condition;
     private String temp_c;
     private String temp_f;
+    private String humidity;
+    private String wind_kph;
+    private String last_updated;
     private Map<String, Object> additionalProperties = new HashMap<>();
     private static final long serialVersionUID = 270727596527329670L;
+
     public Current() {
 
     }
+
     public Current(Condition condition) {
         this.condition = condition;
     }
@@ -50,12 +55,43 @@ public class Current {
         this.temp_f = temp_f;
     }
 
+    public void setCondition(Condition condition) {
+        this.condition = condition;
+    }
+
+    public String getHumidity() {
+        return humidity;
+    }
+
+    public void setHumidity(String humidity) {
+        this.humidity = humidity;
+    }
+
+    public String getWind_kph() {
+        return wind_kph;
+    }
+
+    public void setWind_kph(String wind_kph) {
+        this.wind_kph = wind_kph;
+    }
+
+    public String getLast_updated() {
+        return last_updated;
+    }
+
+    public void setLast_updated(String last_updated) {
+        this.last_updated = last_updated;
+    }
+
     @Override
     public String toString() {
         return "Current{" +
                 "condition=" + condition +
                 ", temp_c='" + temp_c + '\'' +
                 ", temp_f='" + temp_f + '\'' +
+                ", humidity='" + humidity + '\'' +
+                ", wind_kph='" + wind_kph + '\'' +
+                ", last_updated='" + last_updated + '\'' +
                 '}';
     }
 }

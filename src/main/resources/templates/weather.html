@@ -37,12 +37,15 @@
                 />
                 <button type="submit">Search</button>
             </form>
-            <h1
-                    class="col d-flex justify-content-center align-items-center city-title"
-                    id="searched-city"
-                    th:text="${countrySearchName}"
-            >
-            </h1>
+            <div class="d-flex">
+                <h1
+                        class="col d-flex justify-content-center align-items-center city-title"
+                        id="searched-city"
+                        th:text="${countrySearchName}"
+                >
+                </h1>
+                <img th:src="${current.condition.icon}" alt="icon">
+            </div>
         </div>
     </section>
 
@@ -53,15 +56,15 @@
                 <h3 class="col temp-title" id="current-temperature" th:if="${current.temp_c} != null"
                     th:text="${current.temp_c}+'°'">4°</h3>
                 <div class="col todays-info">
-                    <!--                    <p id="current-time" th:text="${}">11:00</p>-->
+                    <p id="current-time" th:text="${time}">11:00</p>
                     <h2 id="current-day">Today</h2>
                     <p id="weather-type" th:if="${current.condition.text}" th:text="${current.condition.text}">
                         Cloudy</p>
                 </div>
                 <div class="col d-flex align-items-center side-info">
                     <ul>
-                        <li>Humidity: <span id="humidity"></span></li>
-                        <li>Wind: <span id="wind"></span></li>
+                        <li>Humidity: <span id="humidity" th:text="${current.humidity}"></span></li>
+                        <li>Wind: <span id="wind" th:text="${current.wind_kph}"></span></li>
                     </ul>
                 </div>
             </div>
