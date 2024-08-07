@@ -35,8 +35,12 @@ public class WeatherAPIServiceImpl implements WeatherAPIService {
         if (countryName == null) {
             countryName = "India";
         }
-        UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromUriString(uriString).queryParam("q", countryName);
-        SuperCurrent superCurrent = restTemplate.getForObject(uriBuilder.toUriString(), SuperCurrent.class);
-        return superCurrent;
+        try {
+            UriComponentsBuilder uriBuilder = UriComponentsBuilder.fromUriString(uriString).queryParam("q", countryName);
+            SuperCurrent superCurrent = restTemplate.getForObject(uriBuilder.toUriString(), SuperCurrent.class);
+            return superCurrent;
+        } catch (Exception e) {
+            throw new RuntimeException(countryName);
+        }
     }
 }

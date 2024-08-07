@@ -1,9 +1,5 @@
 package com.mananluvtocode.weatherAPI.controller;
-
-import com.mananluvtocode.weatherAPI.Model.SuperCurrent;
-import com.mananluvtocode.weatherAPI.Model.SuperLocation;
 import com.mananluvtocode.weatherAPI.service.WeatherAPIService;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

@@ -1,0 +1,22 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    background-color: lightyellow;
+}
+.mainerror{
+    width: 100vw;
+    height:100vh;
+    display:inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Script MT Bold", sans-serif;
+}
+.mainerror h1{
+    font-weight: bolder;
+    border: 2px solid black;
+    box-shadow: 0 0 20px black;
+}
